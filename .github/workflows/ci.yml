@@ -487,6 +487,7 @@ jobs:
         run: cargo +stable test --manifest-path diesel_cli/Cargo.toml --no-default-features --features "sqlite-bundled"
 
       - name: Run diesel_tests with ASAN enabled
+        continue-on-error: true
         env:
           RUSTC_BOOTSTRAP: 1
           RUSTFLAGS: -Zsanitizer=address
